@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+nudeform/__init__.py
+nudeform/__main__.py
+nudeform/model.py
+nudeform/version.py
+nudeform/view.py
+nudeform.egg-info/PKG-INFO
+nudeform.egg-info/SOURCES.txt
+nudeform.egg-info/dependency_links.txt
+nudeform.egg-info/entry_points.txt
+nudeform.egg-info/top_level.txt
+tests/__init__.py

@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: nudeform
+Version: 0.1.0
+Summary: Collection of tools for the representation of nuclear shapes.
+Home-page: https://github.com/DFreireF/nudeform
+Author: DFreireF
+License: GPLv3
+Keywords: Nuclear physics,deformation
+Classifier: Environment :: Console
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Intended Audience :: Science/Research
+Requires-Python: <4,>=3.7
+Description-Content-Type: text/markdown
+
+# Nuclear shape deformation
+With this package you would be able to reproduce the different shapes of deformed nuclei.
