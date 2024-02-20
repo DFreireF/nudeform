@@ -8,24 +8,25 @@ def plot_radius_polar_coordinates(R,r0, phi, theta, save = False, dpi=300, strin
     fig, (ax1, ax2,ax3) = plt.subplots(1, 3, subplot_kw={'projection': 'polar'}, figsize=(12, 6))
 
     # Plot R(phi, theta=pi/2) on the first subplot
+    # 180 = granularity/2
     ax1.plot(phi[:,0], R[:,180], color = 'blue')
     ax1.plot(phi[:,0], r0[:,180], color = 'orange')
 
-    ax1.set_title(r"$R(\phi, \theta=\pi/2)$")
+    ax1.set_title(r"$R(\phi, \theta=\pi/2)$ : xy plane")
 
     # Plot R(phi=0, theta) on the second subplot
     ax2.plot(theta[0,:], R[0], color = 'blue')
     ax2.plot(theta[0,:] + np.pi , R[0], color = 'blue')
     ax2.plot(theta[0,:], r0[0], color = 'orange')
     ax2.plot(theta[0,:] + np.pi, r0[0], color = 'orange') # In order to display better the whole symmetry.
-    ax2.set_title(r"$R(\phi=0, \theta)$")
+    ax2.set_title(r"$R(\phi=0, \theta)$ : xz plane")
 
     # Plot R(phi=pi/2, theta) on the second subplot
     ax3.plot(theta[0,:], R[90], color = 'blue')
     ax3.plot(theta[0,:] + np.pi , R[90], color = 'blue')
     ax3.plot(theta[0,:], r0[90], color = 'orange')
     ax3.plot(theta[0,:] + np.pi, r0[90], color = 'orange') # In order to display better the whole symmetry.
-    ax3.set_title(r"$R(\phi=\pi/2, \theta)$")
+    ax3.set_title(r"$R(\phi=\pi/2, \theta)$ : yz plane")
 
     #radians ticks Lund convention
     x_ticks = np.arange(0, 2*np.pi + np.pi/3, np.pi/3)
