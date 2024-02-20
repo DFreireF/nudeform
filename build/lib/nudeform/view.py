@@ -5,41 +5,50 @@ import numpy as np
 from matplotlib.colors import Normalize
 
 def plot_radius_polar_coordinates(R,r0, phi, theta, save = False, dpi=300, string = ''):
-    fig, (ax1, ax2,ax3) = plt.subplots(1, 3, subplot_kw={'projection': 'polar'}, figsize=(12, 6))
+    fig, (ax1, ax2,ax3) = plt.subplots(1, 3, subplot_kw={'projection': 'polar'}, figsize=(18, 6))
 
     # Plot R(phi, theta=pi/2) on the first subplot
     # 180 = granularity/2
-    ax1.plot(phi[:,0], R[:,180], color = 'blue')
-    ax1.plot(phi[:,0], r0[:,180], color = 'orange')
+    ax1.plot(phi[:,0], R[:,179], color = 'blue')
+    ax1.plot(phi[:,0], r0[:,179], color = 'orange')
 
-    ax1.set_title(r"$R(\phi, \theta=\pi/2)$ : xy plane")
+    ax1.set_title(r"$R(\phi, \theta=\pi/2)$ | xy plane", fontsize = 20)
 
     # Plot R(phi=0, theta) on the second subplot
     ax2.plot(theta[0,:], R[0], color = 'blue')
     ax2.plot(theta[0,:] + np.pi , R[0], color = 'blue')
     ax2.plot(theta[0,:], r0[0], color = 'orange')
     ax2.plot(theta[0,:] + np.pi, r0[0], color = 'orange') # In order to display better the whole symmetry.
-    ax2.set_title(r"$R(\phi=0, \theta)$ : xz plane")
+    ax2.set_title(r"$R(\phi=0, \theta)$ | xz plane", fontsize = 20)
 
     # Plot R(phi=pi/2, theta) on the second subplot
-    ax3.plot(theta[0,:], R[90], color = 'blue')
-    ax3.plot(theta[0,:] + np.pi , R[90], color = 'blue')
-    ax3.plot(theta[0,:], r0[90], color = 'orange')
-    ax3.plot(theta[0,:] + np.pi, r0[90], color = 'orange') # In order to display better the whole symmetry.
-    ax3.set_title(r"$R(\phi=\pi/2, \theta)$ : yz plane")
+    ax3.plot(theta[0,:], R[89], color = 'blue')
+    ax3.plot(theta[0,:] + np.pi , R[89], color = 'blue')
+    ax3.plot(theta[0,:], r0[89], color = 'orange')
+    ax3.plot(theta[0,:] + np.pi, r0[89], color = 'orange') # In order to display better the whole symmetry.
+    ax3.set_title(r"$R(\phi=\pi/2, \theta)$ | yz plane", fontsize = 20)
 
     #radians ticks Lund convention
     x_ticks = np.arange(0, 2*np.pi + np.pi/3, np.pi/3)
     x_tick_labels = ['$0$', r'$\frac{\pi}{3}$', r'$\frac{2\pi}{3}$', 
                     r'$\pi$', r'$\frac{4\pi}{3}$', r'$\frac{5\pi}{3}$', '']
     ax1.set_xticks(x_ticks)
-    ax1.set_xticklabels(x_tick_labels)
+    ax1.set_xticklabels(x_tick_labels, fontsize = 18)
+    ax1.tick_params(axis='y', labelsize=16)  # Change the label size of radial ticks
+
     ax2.set_xticks(x_ticks)
-    ax2.set_xticklabels(x_tick_labels)
+    ax2.set_xticklabels(x_tick_labels, fontsize = 18)
+    ax2.tick_params(axis='y', labelsize=16)  # Change the label size of radial ticks
+
     ax3.set_xticks(x_ticks)
-    ax3.set_xticklabels(x_tick_labels)
+    ax3.set_xticklabels(x_tick_labels, fontsize = 18)
+    ax3.tick_params(axis='y', labelsize=16)  # Change the label size of radial ticks
+
+    fig.subplots_adjust(wspace=0.3)
+    
     if save:
-        plt.savefig('img/radial_plot'+string+'.png', dpi=dpi)
+        plt.savefig('radial_plot'+string+'.png', dpi=dpi)
+    
     plt.show()
  
 def shape_plot_3D(x,y,z,R, save=False, dpi=300, string='', panes = True, axis = True):
@@ -67,5 +76,5 @@ def shape_plot_3D(x,y,z,R, save=False, dpi=300, string='', panes = True, axis = 
     #fig.colorbar(m)
 
     if save:
-        plt.savefig('img/deform_plot'+string+'.png', dpi=dpi)
+        plt.savefig('deform_plot'+string+'.png', dpi=dpi)
     plt.show()
