@@ -6,15 +6,15 @@ from nudeform.view import *
 
 def run_plot(A, beta, gamma, granularity, save = False, dpi = 300, string = ''):
     phi, theta = np.mgrid[0:2*np.pi:granularity*1j, 0:np.pi:granularity*1j]
-    Rquadr = quadrupole_shape(theta, beta=beta, gamma=gamma)
+    Rquadr = quadrupole_shape_scipy(phi,theta, beta = beta, gamma = gamma)
     r0 = initial_radius(A)
     R = r0 * (1 + Rquadr)
     x, y, z = xyz(R, theta, phi)
 
-    shape_plot_3D(x, y, z, R, save = save, dpi=dpi, string = string)
+    shape_plot_3D(x, y, z, R, save = save, dpi=dpi, string = '', axis = True)
     plt.show()
 
-    plot_radius_polar_coordinates(R, phi, theta, save = save, dpi=dpi, string = string)
+    plot_radius_polar_coordinates(R, r0*np.ones((granularity,granularity)),phi, theta, save = save, dpi=dpi, string = string)
 
 class App(QWidget):
     def __init__(self):
