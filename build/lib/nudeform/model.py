@@ -5,6 +5,8 @@ def initial_radius(A):#A is the number of nucleons
     return 1.2*A**(1/3)
 def spherical_harmonics(m,l,theta):
     return np.sqrt(((2*l+1)*sp.factorial(l-m))/(4*np.pi*sp.factorial(l+m)))*((-1)**m)*sp.lpmv(m,l,theta)
+def spherical_harmonics_scipy(m,l,phi,theta):
+    return sph_harm(m, l, phi, theta).real
 def deformed_radius(beta, m, l, theta):
     return beta * spherical_harmonics(m,l,np.cos(theta))
 def total_radius(r0,*r):

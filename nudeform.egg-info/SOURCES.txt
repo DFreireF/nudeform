@@ -4,6 +4,7 @@ setup.cfg
 setup.py
 nudeform/__init__.py
 nudeform/__main__.py
+nudeform/gui.py
 nudeform/model.py
 nudeform/version.py
 nudeform/view.py
