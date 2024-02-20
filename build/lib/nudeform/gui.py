@@ -14,7 +14,7 @@ def run_plot(A, beta, gamma, granularity, save = False, dpi = 300, string = ''):
     shape_plot_3D(x, y, z, R, save = save, dpi=dpi, string = string)
     plt.show()
 
-    plot_radius_polar_coordinates(R, phi, theta, save = save, dpi=dpi, string = string)
+    plot_radius_polar_coordinates(R, phi, theta)
 
 class App(QWidget):
     def __init__(self):
@@ -37,7 +37,7 @@ class App(QWidget):
         grid.addWidget(self.betaInput, 0, 1)
         grid.addWidget(QLabel('Gamma:'), 1, 0)
         grid.addWidget(self.gammaInput, 1, 1)
-        grid.addWidget(QLabel('Number of nucleons (A):'), 2, 0)
+        grid.addWidget(QLabel('Number of Nucleons (A):'), 2, 0)
         grid.addWidget(self.AInput, 2, 1)
         grid.addWidget(QLabel('Granularity:'), 3, 0)
         grid.addWidget(self.granularityInput, 3, 1)
