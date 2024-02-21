@@ -36,3 +36,11 @@ def quadrupole_shape_scipy(phi,theta, beta = 1,gamma = 0):
     r21m = deformed_radius_scipy(beta21m, -1, 2,phi, theta) #0
     r22m = deformed_radius_scipy(beta22m, -2, 2,phi, theta)
     return r22+r21+r20+r21m+r22m
+def lambda_shape(phi,theta, beta = [1],gamma = 0, lambda_ = 1):
+    labda_rb = []
+    for betai in beta:
+        lambda_r = 0
+        for m in range(-lambda_,lambda_+1):
+            lambda_r += deformed_radius_scipy(betai, m, lambda_,phi, theta)
+        labda_rb = np.append(labda_rb, lambda_r)
+    return np.reshape(labda_rb, (len(beta),360,360))
