@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Freire-Fernández"
+  given-names: "David"
+  orcid: "https://orcid.org/0000-0002-5898-9291"
+title: "nudeform: Collection of code for the illustration of the nuclear shapes in Python"
+url: "https://github.com/DFreireF/nudeform"
