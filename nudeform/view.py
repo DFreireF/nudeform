@@ -9,40 +9,40 @@ def plot_radius_polar_coordinates(R,r0, phi, theta, save = False, dpi=300, strin
 
     # Plot R(phi, theta=pi/2) on the first subplot
     # 180 = granularity/2
-    ax1.plot(phi[:,0], R[:,179], color = 'blue')
-    ax1.plot(phi[:,0], r0[:,179], color = 'orange')
+    ax1.plot(phi[:,0], R[:,179], color = 'blue', linewidth=2)
+    ax1.plot(phi[:,0], r0[:,179], color = 'orange', linewidth=2)
 
-    ax1.set_title(r"$R(\phi, \theta=\pi/2)$ | xy plane", fontsize = 20)
+    ax1.set_title(r"$R(\phi, \theta=\pi/2)$ | xy plane", fontsize = 20,pad = 25)
 
     # Plot R(phi=0, theta) on the second subplot
-    ax2.plot(theta[0,:], R[0], color = 'blue')
-    ax2.plot(theta[0,:] + np.pi , R[0], color = 'blue')
-    ax2.plot(theta[0,:], r0[0], color = 'orange')
-    ax2.plot(theta[0,:] + np.pi, r0[0], color = 'orange') # In order to display better the whole symmetry.
-    ax2.set_title(r"$R(\phi=0, \theta)$ | xz plane", fontsize = 20)
+    ax2.plot(theta[0,:], R[0], color = 'blue', linewidth=2)
+    ax2.plot(theta[0,:] + np.pi , R[0], color = 'blue', linewidth=2)
+    ax2.plot(theta[0,:], r0[0], color = 'orange', linewidth=2)
+    ax2.plot(theta[0,:] + np.pi, r0[0], color = 'orange', linewidth=2) # In order to display better the whole symmetry.
+    ax2.set_title(r"$R(\phi=0, \theta)$ | xz plane", fontsize = 20,pad = 25)
 
     # Plot R(phi=pi/2, theta) on the second subplot
-    ax3.plot(theta[0,:], R[89], color = 'blue')
-    ax3.plot(theta[0,:] + np.pi , R[89], color = 'blue')
-    ax3.plot(theta[0,:], r0[89], color = 'orange')
-    ax3.plot(theta[0,:] + np.pi, r0[89], color = 'orange') # In order to display better the whole symmetry.
-    ax3.set_title(r"$R(\phi=\pi/2, \theta)$ | yz plane", fontsize = 20)
+    ax3.plot(theta[0,:], R[89], color = 'blue', linewidth=2)
+    ax3.plot(theta[0,:] + np.pi , R[89], color = 'blue', linewidth=2)
+    ax3.plot(theta[0,:], r0[89], color = 'orange', linewidth=2)
+    ax3.plot(theta[0,:] + np.pi, r0[89], color = 'orange', linewidth=2) # In order to display better the whole symmetry.
+    ax3.set_title(r"$R(\phi=\pi/2, \theta)$ | yz plane", fontsize = 20,pad = 25)
 
     #radians ticks Lund convention
     x_ticks = np.arange(0, 2*np.pi + np.pi/3, np.pi/3)
     x_tick_labels = ['$0$', r'$\frac{\pi}{3}$', r'$\frac{2\pi}{3}$', 
                     r'$\pi$', r'$\frac{4\pi}{3}$', r'$\frac{5\pi}{3}$', '']
     ax1.set_xticks(x_ticks)
-    ax1.set_xticklabels(x_tick_labels, fontsize = 18)
-    ax1.tick_params(axis='y', labelsize=16)  # Change the label size of radial ticks
+    ax1.set_xticklabels(x_tick_labels, fontsize = 25)
+    ax1.tick_params(axis='y', labelsize=17)  # Change the label size of radial ticks
 
     ax2.set_xticks(x_ticks)
-    ax2.set_xticklabels(x_tick_labels, fontsize = 18)
-    ax2.tick_params(axis='y', labelsize=16)  # Change the label size of radial ticks
+    ax2.set_xticklabels(x_tick_labels, fontsize = 25)
+    ax2.tick_params(axis='y', labelsize=17)  # Change the label size of radial ticks
 
     ax3.set_xticks(x_ticks)
-    ax3.set_xticklabels(x_tick_labels, fontsize = 18)
-    ax3.tick_params(axis='y', labelsize=16)  # Change the label size of radial ticks
+    ax3.set_xticklabels(x_tick_labels, fontsize = 25)
+    ax3.tick_params(axis='y', labelsize=17)  # Change the label size of radial ticks
 
     fig.subplots_adjust(wspace=0.3)
     
