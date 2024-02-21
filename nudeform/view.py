@@ -122,6 +122,7 @@ def plot_radius_polar_coordinates_superposition(r0, phi, theta, save = False, dp
     fig.subplots_adjust(wspace=0.3)
     
     if save:
-        plt.savefig('radial_plot'+string+'.png', dpi=dpi)
-    
+        extent = ax3.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+        plt.savefig('radial_plot_3'+string+'.png', dpi=dpi, bbox_inches=extent.expanded(1.3, 1.2))
+
     plt.show()
